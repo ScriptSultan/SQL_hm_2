@@ -26,7 +26,7 @@ create TABLE if  not exists albums (
 -- Создание таблицы для связи между исполнителями и альбомами
 CREATE table if not EXISTS artist_album (
     artist_id INT REFERENCES artists(artist_id),
-    albums_id INT REFERENCES albums(albom_id),
+    album_id INT REFERENCES albums(album_id),
     PRIMARY KEY (artist_id, album_id)
 );
 
@@ -34,7 +34,7 @@ CREATE table if not EXISTS artist_album (
 create table if not exists compilations (
 	compilation_id SERIAL primary key,
 	compilation_name VARCHAR(50) not null,
-	compilation_year YEAR not null,
+	compilation_year DATE not null
 );
 
 --Создание таблицы сборников и артистов (многие ко многим)
@@ -52,3 +52,4 @@ create table if not exists tracks(
 	album_id int references albums(album_id),
 	artist_id INT REFERENCES artists(artist_id)
 );
+
